@@ -16,10 +16,16 @@
     
         <div class="col-xl-4 col-md-6">
 
+            <x-flash/>
+
             <form class="user" method="POST" action="{{ url('admin/update-password') }}">
                     
                 @csrf
 
+                <div class="form-group">
+                    <x-form.input name="user_id" type="hidden" disabled="disabled" value="{{ $user->id }}"/>
+                    <x-form.error name="user_id"/>
+                </div>
                 <div class="form-group">
                     <x-form.input name="name" type="text" disabled="disabled" value="{{ $user->name }}"/>
                     <x-form.error name="name"/>
@@ -29,16 +35,16 @@
                     <x-form.error name="email"/>
                 </div>
                 <div class="form-group">
-                    <x-form.input name="current-password" type="password" placeholder="Current Password"/>
-                    <x-form.error name="current-password"/>
+                    <x-form.input name="current_password" type="password" placeholder="Current Password"/>
+                    <x-form.error name="current_password"/>
                 </div>
                 <div class="form-group">
-                    <x-form.input name="new-password" type="password" placeholder="New Password"/>
-                    <x-form.error name="new-password"/>
+                    <x-form.input name="password" type="password" placeholder="New Password"/>
+                    <x-form.error name="password"/>
                 </div>
                 <div class="form-group">
-                    <x-form.input name="repeat-password" type="password" placeholder="Repeat New Password"/>
-                    <x-form.error name="repeat-password"/>
+                    <x-form.input name="password_confirmation" type="password" placeholder="Confirm New Password"/>
+                    <x-form.error name="password_confirmation"/>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success" type="submit">Update Password</button>

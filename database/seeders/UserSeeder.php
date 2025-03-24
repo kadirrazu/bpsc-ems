@@ -20,24 +20,15 @@ class UserSeeder extends Seeder
             'email' => 'kadir.bpsc@gmail.com',
             'password' => Hash::make('123456'),
             'role_id' => 1,
+            'status' => 1,
         ]);
 
-        DB::table('roles')->insert(
-            [
-                'title' => 'Super Admin',
-            ],
-            [
-                'title' => 'Admin',
-            ],
-            [
-                'title' => 'Chairman',
-            ],
-            [
-                'title' => 'Member',
-            ],
-            [
-                'title' => 'Report Generator',
-            ]
-        );
+        DB::table('roles')->insert([
+            ['title' => 'Super Admin'],
+            ['title' => 'Admin'],
+            ['title' => 'Chairman'],
+            ['title' => 'Member'],
+            ['title' => 'Report Generator'],
+        ]);
     }
 }

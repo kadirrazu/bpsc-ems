@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('user_id')->constrained();
             $table->string('joining_date')->nullable();
             $table->string('leaving_date')->nullable();
-            $table->integer('status')->nullable();
+            $table->string('unit')->nullable();
             $table->timestamps();
         });
     }
